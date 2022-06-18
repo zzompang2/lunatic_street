@@ -1,0 +1,30 @@
+#main_section {
+  height: 100px;
+}
+
+#photo_section {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0 var(--var-padding);
+  
+}
+
+#photo_grid {
+  position: relative;
+  width: 100%;
+  background-color: pink;
+}
+
+.photo_ctn {
+  position: absolute;
+  border-radius: 8px;
+  transition-duration: 300ms;
+  overflow: hidden;
+  background-color: var(--color-black);
+}
+
+.photo {
+  width: 100%;
+  object-fit: cover;
+}

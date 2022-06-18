@@ -1,0 +1,93 @@
+@font-face { 
+  font-family: 'NanumSquareB'; 
+  src: url('/assets/font/NanumSquareB.ttf') 
+  format('truetype'); 
+}
+@font-face { 
+  font-family: 'NanumSquareR'; 
+  src: url('/assets/font/NanumSquareR.ttf') 
+  format('truetype'); 
+}
+@font-face { 
+  font-family: 'NanumSquareL'; 
+  src: url('/assets/font/NanumSquareL.ttf') 
+  format('truetype'); 
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-container10: #dadada;
+  --color-container20: #93918f;
+  --color-container30: #757370;
+  --color-container80: #3b3b3b;
+  --color-container90: #1e1e1e;
+  --color-black: #000;
+  --color-yellow: #EF9C1C;
+  --color-red: #D63F72;
+  --color-orange: #ff631b;
+  --color-purple: #8249d3;
+  --color-blue: #4469EB;
+  --color-green: #00817a;
+  --var-padding: 32px;
+  --var-gap: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: NanumSquareR;
+}
+
+object {
+  /* OBJECT 태그, 심지어 감싸는 div의 onclick도 안 되는 문제 해결 */
+  pointer-events: none;
+}
+
+html, body {
+  width: 100%;
+  min-width: 600px;
+  height: 100%;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  background-color: var(--color-container90);
+}
+
+header {
+  /* position: absolute; */
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 0 var(--var-padding);
+}
+
+#header_logo {
+  width: 100px;
+}
+
+#menu_list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+#menu_list .menu {
+  margin: 0 8px;
+  font-size: 14px;
+  color: var(--color-white);
+}
+
+footer {
+  min-height: 80px;
+  background-color: var(--color-container80);
+}
