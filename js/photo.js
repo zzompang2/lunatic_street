@@ -28,7 +28,7 @@ function loadPhoto() {
       photoRatio[photoIndex] = $photo.height / $photo.width;
       done++;
     };
-    $photo.src = `/assets/image/photo/${photoIndex}.jpg`;
+    $photo.src = `https://zzompang2.github.io/lunatic_street/assets/image/photo/${photoIndex}.jpg`;
     $photoGrid.appendChild($photoCtn);
     $photoCtn.appendChild($photo);
     loadedImgNum++;
