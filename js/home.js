@@ -67,13 +67,13 @@ contentSectionInfo.forEach((info, index) => {
   $leftBtn.className = "content_section_left_btn";
   const $leftBtnObj = document.createElement("object");
   $leftBtnObj.type = "image/svg+xml";
-  $leftBtnObj.data = "/assets/icon/arrow/left.svg";
+  $leftBtnObj.data = "https://zzompang2.github.io/lunatic_street/assets/icon/arrow/left.svg";
   $leftBtn.appendChild($leftBtnObj);
   const $rightBtn = document.createElement("div");
   $rightBtn.className = "content_section_right_btn";
   const $rightBtnObj = document.createElement("object");
   $rightBtnObj.type = "image/svg+xml";
-  $rightBtnObj.data = "/assets/icon/arrow/right.svg";
+  $rightBtnObj.data = "https://zzompang2.github.io/lunatic_street/assets/icon/arrow/right.svg";
   $rightBtn.appendChild($rightBtnObj);
 
   $leftBtn.onclick = () => {
@@ -129,7 +129,7 @@ contentSectionInfo.forEach((info, index) => {
     $content.className = "content";
     const $contentImg = document.createElement("img");
     $contentImg.className = "content_img";
-    $contentImg.src = `/assets/image/content/${video.thumbnail}`;
+    $contentImg.src = `https://zzompang2.github.io/lunatic_street/assets/image/content/${video.thumbnail}`;
     const $contentTitle = document.createElement("div");
     $contentTitle.className = "content_title";
     $contentTitle.appendChild(document.createTextNode(video.title));
