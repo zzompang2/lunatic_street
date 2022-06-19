@@ -1,4 +1,4 @@
-const PADDING = 32;
+const PADDING = 48;
 const GAP = 12;
 const PHOTO_UPDATE_NUM = 30;
 let photoNumInRow = 5;

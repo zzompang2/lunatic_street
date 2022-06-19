@@ -1,4 +1,4 @@
-const PADDING = 32;
+const PADDING = 48;
 const GAP = 12;
 const HIDDEN_CONTENT_OPACITY = 0.7;
 let displayed_content_num = 3;
@@ -43,10 +43,10 @@ window.onresize = () => {
 const $mainSection = document.getElementById("main_section");
 
 const contentSectionInfo = [
-  {title: "정기공연 몰아보기", category: "정기공연"},
-  {title: "루나틱을 소개합니다!", category: "홍보영상"},
-  {title: "2022년!", year: 2022},
-  {title: "2020년!", year: 2020}
+  {title: "2022 정기공연 몰아보기", key: "category/year", value: "정기공연/2022"},
+  {title: "루나틱을 소개합니다!", key: "category", value: "홍보영상"},
+  {title: "개인 프로젝트", key: "category", value: "개인촬영"},
+  {title: "락킹이 있는 공연", key: "genre", value: "Loc"}
 ]
 const slider_first_content_idx_list = [];
 
@@ -113,20 +113,29 @@ contentSectionInfo.forEach((info, index) => {
   }
   
   videoData.forEach(video => {
-    if(video.category !== undefined && video.category == info.category ||
-       video.year !== undefined && video.year == info.year) {
-      const $content = document.createElement("div");
-      $content.className = "content";
-      const $contentImg = document.createElement("img");
-      $contentImg.className = "content_img";
-      $contentImg.src = `/assets/image/content/${video.index}.jpg`;
-      const $contentTitle = document.createElement("div");
-      $contentTitle.className = "content_title";
-      $contentTitle.appendChild(document.createTextNode(video.title));
-      $content.appendChild($contentImg);
-      $content.appendChild($contentTitle);
-      $contentTrack.appendChild($content);
+    const keys = info.key.split("/");
+    const values = info.value.split("/");
+    if(keys.length != values.length) return;
+
+    for(let i=0; i<keys.length; i++) {
+      const infoValue = values[i];
+      const videoValues = String(video[keys[i]]).split("/");
+      for(let j=0; j<videoValues.length; j++) {
+        if(infoValue == videoValues[j]) break;
+        if(j == videoValues.length-1) return;
+      }
     }
+    const $content = document.createElement("div");
+    $content.className = "content";
+    const $contentImg = document.createElement("img");
+    $contentImg.className = "content_img";
+    $contentImg.src = `/assets/image/content/${video.thumbnail}`;
+    const $contentTitle = document.createElement("div");
+    $contentTitle.className = "content_title";
+    $contentTitle.appendChild(document.createTextNode(video.title));
+    $content.appendChild($contentImg);
+    $content.appendChild($contentTitle);
+    $contentTrack.appendChild($content);
   });
   
   $contentSection.appendChild($contentSectionTitle);
@@ -137,7 +146,17 @@ contentSectionInfo.forEach((info, index) => {
   $contentSection.appendChild($contentSlider);
   
   $mainSection.appendChild($contentSection);
-
 })
 
 window.onresize();
+
+/* footer */
+const $iconList = document.getElementById("icon_list");
+$iconList.childNodes.forEach($icon => {
+  $icon.onclick = () => {
+    const $anchor = document.createElement("a");
+    $anchor.target = "_blank";
+    $anchor.href = $icon.dataset.href;
+    $anchor.click();
+  }
+});

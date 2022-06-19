@@ -1,5 +1,33 @@
 #main_section {
-  height: 100px;
+  padding: 6px var(--var-padding) 24px var(--var-padding);
+}
+
+#search_ctn {
+  display: flex;
+  width: 100%;
+  height: 48px;
+  border-radius: 25px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+  background-color: var(--color-container80);
+}
+
+.search_icon {
+  width: 20px;
+}
+
+#main_section input {
+  flex: 1;
+  height: 70%;
+  margin: 0 12px;
+  border: 0;
+  background-color: #ffffff00;
+  color: var(--color-white);
+}
+
+#main_section input:focus {
+  outline: none;
 }
 
 #photo_section {
@@ -7,7 +35,6 @@
   box-sizing: border-box;
   position: relative;
   padding: 0 var(--var-padding);
-  
 }
 
 #photo_grid {

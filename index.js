@@ -1,3 +1,3 @@
 const $a = document.createElement("a");
-$a.href = "/html/home.html";
+$a.href = "/home";
 $a.click();
